@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KeypadGrid.KeypadGridPage" 
+	         xmlns:local="clr-namespace:KeypadGrid">
+	 <ContentPage.Resources>
+ 		<ResourceDictionary>
+ 			<local:KeyPadGridViewModel x:Key="viewModel"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BindingContext="{StaticResource viewModel}"
+		  RowSpacing="2"
+          ColumnSpacing="2"
+          VerticalOptions="Center"
+          HorizontalOptions="Center">
+        <Grid.WidthRequest>
+            <OnPlatform x:TypeArguments="x:Double"
+                        iOS="180"
+                        Android="180"
+                        />
+        </Grid.WidthRequest>
+        
+        <Grid.HeightRequest>
+            <OnPlatform x:TypeArguments="x:Double"
+                        iOS="300"
+                        Android="300"
+                         />
+        </Grid.HeightRequest>
+
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="Large" />
+                    <Setter Property="BorderWidth" Value="1" />
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <!--<BoxView Color="Silver"  VerticalOptions="FillAndExpand" MinimumWidthRequest="300" MinimumHeightRequest="75">-->
+	        <Label x:Name="displayLabel"
+	               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+	               FontSize="{Binding FontSize}"
+	               LineBreakMode="CharacterWrap"
+	               VerticalOptions="Center"
+				   VerticalTextAlignment="End"
+	               HorizontalTextAlignment="End"
+				
+			       Text = "{Binding CurrentOperand}" />
+		<!--</BoxView>-->
+        <Button x:Name="backspaceButton"
+                Text="⇐"
+                Grid.Row="1" Grid.Column="0"
+                Command = "{Binding BackSpaceCommand}"		     
+                 />
+		
+		<Button Text="÷" StyleId="div"
+                Grid.Row="1" Grid.Column="3"
+                />
+
+		<Button Text="±" StyleId="plusminus"
+                Grid.Row="1" Grid.Column="1" 
+			    Command = "{Binding UnaryOperationCommand}"	
+			    CommandParameter = "plusminus" 
+                />
+		
+		 <Button Text="%" StyleId="pct"
+                Grid.Row="1" Grid.Column="2" 
+			    Command = "{Binding UnaryOperationCommand}"	
+			    CommandParameter = "pct"
+                 />
+
+		<!-- Row 2 -->
+        <Button Text="7" StyleId="7"
+                Grid.Row="2" Grid.Column="0"
+                Command = "{Binding OperandCommand}"
+		        CommandParameter="7" />
+        
+        <Button Text="8" StyleId="8"
+                Grid.Row="2" Grid.Column="1"
+                Command = "{Binding OperandCommand}"
+		        CommandParameter="8" />
+        
+        <Button Text="9" StyleId="9"
+                Grid.Row="2" Grid.Column="2"
+                Command = "{Binding OperandCommand}"
+		        CommandParameter="9"/>
+		
+        <Button Text="X" StyleId="X"
+                Grid.Row="2" Grid.Column="3"
+                 />
+		
+        <!-- Row 3 -->
+        <Button Text="4" StyleId="4"
+                Grid.Row="3" Grid.Column="0"
+                Command = "{Binding OperandCommand}"
+		        CommandParameter="4" />
+        
+        <Button Text="5" StyleId="5"
+                Grid.Row="3" Grid.Column="1"
+			    Command = "{Binding OperandCommand}"
+		        CommandParameter="5" 
+                />
+        
+        <Button Text="6" StyleId="6"
+                Grid.Row="3" Grid.Column="2"
+                Command = "{Binding OperandCommand}"
+		        CommandParameter="6" />
+
+		<Button Text="-" StyleId="-"
+                Grid.Row="3" Grid.Column="3"
+                 />
+
+		<!-- Row 4 -->
+        <Button Text="1" StyleId="1"
+                Grid.Row="4" Grid.Column="0"
+                Command = "{Binding OperandCommand}"
+		        CommandParameter="1" />
+        
+        <Button Text="2" StyleId="2"
+                Grid.Row="4" Grid.Column="1"
+                Command = "{Binding OperandCommand}"
+		        CommandParameter="2" />
+        
+        <Button Text="3" StyleId="3"
+                Grid.Row="4" Grid.Column="2"
+                Command = "{Binding OperandCommand}"
+		        CommandParameter="3" />
+		
+        <Button Text="+" StyleId="+"
+                Grid.Row="4" Grid.Column="3" 
+                 />
+		
+        <!-- Row 5 WE ONLY HAVE ROOM FOR THREE HERE BECAUSE ZERO TAKES TWO SPACES -->
+        <Button Text="0" StyleId="0"
+                Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                Command = "{Binding OperandCommand}"
+		        CommandParameter="0" />
+
+        <Button Text="." StyleId="."
+                Grid.Row="5" Grid.Column="2"
+                Command = "{Binding DecimalCommand}"
+		        />
+
+		 <Button Text="=" StyleId="="
+                Grid.Row="5" Grid.Column="3" 
+                 />
+      
+    </Grid>
+</ContentPage>
