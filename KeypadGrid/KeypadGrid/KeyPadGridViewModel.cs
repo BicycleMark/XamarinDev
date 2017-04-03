@@ -45,36 +45,63 @@ namespace KeypadGrid
 					case (5):
 					case (6):
 					case (7):
-						retval = 45.0;
-						break;
 					case (8):
-					case (9):
-						retval = 35.0;
-					
-						break;				
-					
+					case (9):						
 					case (10):
 					case (11):
 					case (12):
-						retval = 30.0;
+						retval = 45.0;
 						break;
-					
-
 					case (13):	
-					case (14):	
-
-						retval = 20.0;				
+					case (14):
+						retval = 40.0;
 						break;
-					case (15):	case (16):	
-					case (17):	
+					case (15):	
+					case (16):	
+					case (17):
+						retval = 35.0;
+						break;	
 					case (18):
 					case (19):
 					case (20):
-						retval = 15.0;
-						RaisePropertyChanged("FontSize");	break;					
-					default:
-						retval = 10.0;
+					case (21):
+						retval = 30.0;
 						break;
+					case (22):
+					case (23):
+					case (24):
+					case (25):
+						retval = 25.0;
+						break;
+					case (26):
+					case (27):
+					case (28):
+					case (29):
+					case (30):
+						retval = 20.0;
+						break;
+					case (31):
+					case (32):
+					case (33):
+					case (34):
+					case (35):
+					case (36):
+					case (37):
+					case (38):
+					case (39):
+					case (40):
+
+
+						retval = 15;
+						break;
+						
+
+										
+					default:
+						retval = 10;
+						break;
+						
+						
 
 					
 
