@@ -30,7 +30,10 @@ namespace KeypadGrid
 			RaisePropertyChanged("CurrentOperand");
 
 		}
-
+        /// <summary>
+        /// Gets the size of the font.
+        /// </summary>
+        /// <value>The size of the font.</value>
 		public double FontSize
 		{
 			get
