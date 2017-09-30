@@ -37,7 +37,7 @@
                     <Setter Property="BorderWidth" Value="1" />
 					
 					<Setter Property="TextColor"> 
-						<OnPlatform x:TypeArguments="Color" iOS="Blue" Android="White" />
+						<OnPlatform x:TypeArguments="Color" iOS="Red" Android="White" />
 					</Setter>
                 </Style>
 				<Style x:Key="OpStyle" TargetType="Button">
